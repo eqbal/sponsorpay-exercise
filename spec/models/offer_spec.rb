@@ -42,6 +42,10 @@ describe Offer do
     			end
     		end
     	end
+
+    	it "creates items only if they don't execist" do
+    		expect(@offer.get_offers).not_to eq(4)
+    	end
     	
     end
 
@@ -52,3 +56,32 @@ describe Offer do
 end
 
 
+
+
+#       it "only creates content items if they don't already exist" do
+#         @offer.get_offers
+#         @offer.content_items.should_not have(4).content_items 
+#       end
+
+#     end
+
+#     context "with no offers present" do
+#       before do
+#         no_offers = [] 
+#         SponsorPay::MobileOffer.any_instance
+#           .should_receive(:get_offers)
+#           .and_return(no_offers)
+#           @content_items = @offer.get_offers                  
+#       end
+      
+#       it "should not return itmes" do
+#         @content_items.should be_empty
+#       end
+
+#       it "should not create offer associated content items" do
+#         @offer.content_items.should be_empty
+#       end
+#     end
+#   end
+
+# end
