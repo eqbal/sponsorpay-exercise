@@ -1,39 +1,8 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Uid:</strong>
-  <%= @offer.uid %>
-</p>
-
-<p>
-  <strong>Pub0:</strong>
-  <%= @offer.pub0 %>
-</p>
-
-<p>
-  <strong>Page:</strong>
-  <%= @offer.page %>
-</p>
-
-<p>
-  <strong>Created at:</strong>
-  <%= @offer.created_at %>
-</p>
-
-<p>
-  <strong>Updated at:</strong>
-  <%= @offer.updated_at %>
-</p>
-
-<p>
-  <strong>Locale:</strong>
-  <%= @offer.locale %>
-</p>
-
-<p>
-  <strong>Request timestamp:</strong>
-  <%= @offer.request_timestamp %>
-</p>
-
+<% if @offer.content_items.any? %>
+  <%= render partial: "content_item", collection: @offer.items  %>
+<% else %>
+  <%= render partial: "no_content"  %>
+<% end %>
 <%= link_to 'Edit', edit_offer_path(@offer) %> |
 <%= link_to 'Back', offers_path %>
