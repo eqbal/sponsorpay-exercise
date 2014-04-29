@@ -55,3 +55,4 @@ group :test do
 end
 
 gem 'httparty'
+gem "simple_form", ">= 2.0.4"
