@@ -1,6 +1,7 @@
 SponsorPayJsonConsumer::Application.routes.draw do
       
-  root "pages#home"
+  resources :offers
+
+  root "offers#index"
   
-  get "/home", to: "pages#home", as: "home"
 end
