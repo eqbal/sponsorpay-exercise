@@ -3,9 +3,11 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+Notes:
 
-* Ruby version
+* I chose Rails 4 for this exercise for simplicity, but usually in production mode I use Sinatra for simple app. 
+
+* I'm using Ruby 2.0 (MRI) for simplicity, usually for production environment I use jRuby implementation with threaded server like Puma
 
 * System dependencies
 
