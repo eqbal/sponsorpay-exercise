@@ -1,7 +1,6 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple solution for SponsorPay exercise. 
 
 Notes:
 
@@ -9,7 +8,7 @@ Notes:
 
 * I'm using Ruby 2.0 (MRI) for simplicity, usually for production environment I use jRuby implementation with threaded server like Puma
 
-* System dependencies
+* I'm using SQLite for simplicity, in production I always prefer to use postgress/MySQL for RDBS (Preferably AWS RDS)
 
 * Configuration
 
