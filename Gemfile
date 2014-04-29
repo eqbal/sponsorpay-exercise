@@ -38,6 +38,7 @@ end
 # Bootstrap 3
 group :development, :test do
   gem 'rails_layout', '~> 0.5.11'  # Bootstrap 3 layout generator
+  gem "factory_girl_rails"
 end
 
 gem 'bootstrap-sass', '~> 3.0.3.0'

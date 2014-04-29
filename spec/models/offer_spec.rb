@@ -4,13 +4,7 @@ require './app/models/sponsorpay_offer'
 
 describe Offer do  
   before do  	
-  	@offer = Offer.create!({
-  				uid: 	"my_string", 
-  				pub0: 	"my_string",
-  				page: 	1,
-  				locale: "de",
-  				request_timestamp: Time.now
-  			})  	
+  	@offer = FactoryGirl.build(:offer)
   end
 
 
@@ -70,19 +64,3 @@ describe Offer do
     end
   end
 end
-
-
-
-#     context "with no offers present" do
-      
-#       it "should not return itmes" do
-#         @content_items.should be_empty
-#       end
-
-#       it "should not create offer associated content items" do
-#         @offer.content_items.should be_empty
-#       end
-#     end
-#   end
-
-# end
