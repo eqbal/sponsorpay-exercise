@@ -5,27 +5,42 @@ require './app/models/sponsorpay_offer'
 describe Offer do  
   before do  	
   	@offer = Offer.create!({
-  		uid: 	"my_string", 
-  		pub0: 	"my_string",
-  		page: 	1,
-  		locale: "de",
-  		request_timestamp: Time.now
-  	})  	
+  				uid: 	"my_string", 
+  				pub0: 	"my_string",
+  				page: 	1,
+  				locale: "de",
+  				request_timestamp: Time.now
+  			})  	
   end
 
 
   describe "import_offers" do
+
     context 'If we have offers ' do
     	before do
     	  @offers = JSON.parse(fake_offers_json)
+
     	  SponsorPayOffer.any_instance
     	  	.stub(:import_offers)
     	  	.and_return(@offers)
-    	  @content_items = @offer.get_offers	
+
+    	  @items = @offer.get_offers	
     	end
 
     	it "should get list of content items" do
-			expect(@content_items.size).to eq(2)
+			expect(@items.size).to eq(2)
+    	end
+
+    	it "should create Items associated with the offer" do
+    		expect(@offer.items.size).to eq(2)
+    	end
+
+    	it "should setup the attributes of Items" do 
+    		@offer.items.each_with_index do |item, i|
+    			@items[i].keys.each do |attr|
+    				expect(item.public_send(attr.to_sym)).to eq(@items[i][attr])
+    			end
+    		end
     	end
     	
     end
@@ -35,4 +50,5 @@ describe Offer do
     # end
   end
 end
+
 
