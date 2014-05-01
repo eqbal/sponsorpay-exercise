@@ -1,7 +1,7 @@
 SponsorPayJsonConsumer::Application.routes.draw do
-      
+        
   resources :offers
 
-  root "offers#index"
+  root "offers#index"  
   
 end

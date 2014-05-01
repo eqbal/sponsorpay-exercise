@@ -1,10 +1,13 @@
-<h3>SponsorPay JSON Consumer</h3>
+<center>
+  <h3>API JSON Consumer</h3>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
 
-<% if @offer.items.any? %>
-  <%= render partial: "item", collection: @offer.items  %>
-<% else %>
-  <%= render partial: "no_offers"  %>
-<% end %>
+  <% if @offer.items.any? %>
+    <%= render partial: "item", collection: @offer.items  %>
+  <% else %>
+    <%= render partial: "no_offers"  %>
+  <% end %>  
+
+</center>
