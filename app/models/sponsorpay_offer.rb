@@ -1,4 +1,4 @@
-class SponsorPayOffer
+class SponsorpayOffer
   include ActiveModel::Validations
   
   validates_presence_of :uid, :request_timestamp
@@ -6,15 +6,15 @@ class SponsorPayOffer
   attr_reader :locale, :page, :pub0
 
   def initialize(params = {})
-    @uid = params[:uid]
+    @uid    = params[:uid]
     @locale = params[:locale]
-    @pub0 = params[:pub0]
-    @page = params[:page]
+    @pub0   = params[:pub0]
+    @page   = params[:page]
     @request_timestamp = params[:timestamp].to_i
   end
 
   def get_response
-    response = mobile_offer_api_call
+    response = sponsorpay_api_call
 
     begin
       validate_response(response)
@@ -32,7 +32,7 @@ class SponsorPayOffer
         []
       end
     else
-      raise "At least a Hash with values for :uid and :timestamp needs to be provided in the initializer"
+      raise "uid and request_timestamp must be initialized at least."
     end
   end
 
@@ -61,7 +61,7 @@ class SponsorPayOffer
     Digest::SHA1.hexdigest string_to_hash
   end
 
-  def mobile_offer_api_call
+  def sponsorpay_api_call
     HTTParty.get("http://api.sponsorpay.com/feed/v1/offers.json?#{api_request_string}")           
   end
 
@@ -70,7 +70,8 @@ class SponsorPayOffer
   end
 
   def validate_response(response)
-    raise Exceptions::FailedResponseValidationError unless response_validation_hash(response.body) == response.header["X-Sponsorpay-Response-Signature"] 
+    raise Exceptions::FailedResponseValidationError unless 
+    response_validation_hash(response.body) == response.header["X-Sponsorpay-Response-Signature"] 
   end 
 
 end  

@@ -14,7 +14,7 @@ describe Offer do
     	before do
     	  @offers = JSON.parse(fake_offers_json)
 
-    	  SponsorPayOffer.any_instance
+    	  SponsorpayOffer.any_instance
     	  	.stub(:import_offers)
     	  	.and_return(@offers)
 
@@ -47,7 +47,7 @@ describe Offer do
     context 'If we have no offers' do
       	before do
         	no_offers = [] 
-        	SponsorPayOffer.any_instance
+        	SponsorpayOffer.any_instance
           	.should_receive(:import_offers)
           	.and_return(no_offers)
           	@items = @offer.get_offers                  

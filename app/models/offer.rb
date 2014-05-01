@@ -3,7 +3,7 @@ class Offer < ActiveRecord::Base
   has_many :items, dependent: :destroy
 
   def get_offers
-    spoonsorpay_offers = SponsorPayOffer.new({
+    spoonsorpay_offers = SponsorpayOffer.new({
       uid: uid,
       locale: locale,
       pub0: pub0,
