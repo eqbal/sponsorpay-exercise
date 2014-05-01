@@ -1,13 +1,12 @@
-<center>
-  <div class="well">
-    <%= simple_form_for(@offer, :html => {:class => 'form-vertical' }) do |f| %>
-      <div id="errors"></div>
 
-      <%= f.input :uid, :autofocus => true %>
-      <%= f.input :pub0 %>
-      <%= f.input :page, :required => true %>
-      <br/>
-      <%= f.button :submit, "Send Request", :class => 'btn-primary' %>
-    <% end %>    
-  </div>
-</center>
+<div class="well">
+  <%= simple_form_for(@offer, :html => {:class => 'form-vertical' }) do |f| %>
+    <div id="errors"></div>
+
+    <%= f.input :uid, :autofocus => true %>
+    <%= f.input :pub0 %>
+    <%= f.input :page, :required => true %>
+    <br/>
+    <%= f.button :submit, "Submit", :class => 'btn-primary' %>
+  <% end %>    
+</div>

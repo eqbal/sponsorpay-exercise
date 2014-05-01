@@ -1,8 +1,0 @@
-
-<% if @offer.content_items.any? %>
-  <%= render partial: "content_item", collection: @offer.items  %>
-<% else %>
-  <%= render partial: "no_content"  %>
-<% end %>
-<%= link_to 'Edit', edit_offer_path(@offer) %> |
-<%= link_to 'Back', offers_path %>

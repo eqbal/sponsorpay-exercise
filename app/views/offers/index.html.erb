@@ -1,39 +1,10 @@
-<h1>Listing offers</h1>
+<h3>SponsorPay JSON Consumer</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Uid</th>
-      <th>Pub0</th>
-      <th>Page</th>
-      <th>Created at</th>
-      <th>Updated at</th>
-      <th>Locale</th>
-      <th>Request timestamp</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= render 'form' %>
 
-  <tbody>
-    <% @offers.each do |offer| %>
-      <tr>
-        <td><%= offer.uid %></td>
-        <td><%= offer.pub0 %></td>
-        <td><%= offer.page %></td>
-        <td><%= offer.created_at %></td>
-        <td><%= offer.updated_at %></td>
-        <td><%= offer.locale %></td>
-        <td><%= offer.request_timestamp %></td>
-        <td><%= link_to 'Show', offer %></td>
-        <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
-        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Offer', new_offer_path %>
+<% if @offer.items.any? %>
+  <%= render partial: "item", collection: @offer.items  %>
+<% else %>
+  <%= render partial: "no_offers"  %>
+<% end %>

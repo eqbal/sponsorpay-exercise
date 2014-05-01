@@ -1,16 +1,15 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-describe "Offers Page" do
-  subject {page}	
+# describe "Offers Page" do
+#   subject {page}	
   
-  describe "GET /offers" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get offers_path
-      response.status.should be(200)
-    end
-  end
-end
+#   describe "GET /offers" do
+#     it "works! (now write some real specs)" do      
+#       get offers_path
+#       response.status.should be(200)
+#     end
+#   end
+# end
 
 
 
