@@ -1,9 +1,10 @@
 class SponsorpayOffer
   include ActiveModel::Validations
   
-  validates_presence_of :uid, :request_timestamp
   attr_accessor :uid, :request_timestamp
   attr_reader :locale, :page, :pub0
+
+  validates_presence_of :uid, :request_timestamp
 
   def initialize(params = {})
     @uid    = params[:uid]
@@ -36,28 +37,28 @@ class SponsorpayOffer
     end
   end
 
-  def gather_security_hash_value_pairs
+  def generate_security_values
     values = {
-      appid: ENV['APPID'],
-      uid: @uid,
-      ip: ENV['IP'],
-      locale: @locale,
-      device_id: ENV['DEVICE_ID'],
-      pub0: @pub0,
-      page: @page,
-      timestamp: @request_timestamp.to_i,
-      offer_types: ENV['OFFER_TYPES']
+      appid:       SP_CONFIG['APPID'],
+      uid:         @uid,
+      ip:          SP_CONFIG['IP'],
+      locale:      @locale,
+      device_id:   SP_CONFIG['DEVICE_ID'],
+      pub0:        @pub0,
+      page:        @page,
+      timestamp:   @request_timestamp.to_i,
+      offer_types: SP_CONFIG['OFFER_TYPES']
     }
     Hash[values.sort]
   end
 
   def api_request_string
-    request_hash = gather_security_hash_value_pairs
+    request_hash = generate_security_values
     request_hash.to_param+"&hashkey=#{sha1_string}"    
   end
 
   def sha1_string
-    string_to_hash = gather_security_hash_value_pairs.to_param + "&" + ENV['API_KEY']
+    string_to_hash = generate_security_values.to_param + "&" + SP_CONFIG['API_KEY']
     Digest::SHA1.hexdigest string_to_hash
   end
 
@@ -66,7 +67,7 @@ class SponsorpayOffer
   end
 
   def response_validation_hash(response_body)
-    Digest::SHA1.hexdigest response_body+ENV['API_KEY']
+    Digest::SHA1.hexdigest response_body+SP_CONFIG['API_KEY']
   end
 
   def validate_response(response)

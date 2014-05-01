@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :offer do
-    uid "my_string"
-    pub0 "my_string"
+    uid "string"
+    pub0 "string"
     page 1
     locale "de"
     request_timestamp Time.now

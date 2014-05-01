@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :item do
-    title "the title"
-    teaser "the teaser"
-    required_action "do something"
+    title "Title"
+    teaser "Teaser"
+    required_action "Some Actions"
     link "http://iframe.sponsorpay.com/mbrowser?appid=157&lpid=11387&uid=player1"
     payout "90"
     time_to_payout ({amount: 1800, readable: "30 minutes"})

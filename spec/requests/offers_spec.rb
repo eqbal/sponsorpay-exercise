@@ -1,35 +1,5 @@
 # require 'spec_helper'
 
-# describe "Offers Page" do
-#   subject {page}	
-  
-#   describe "GET /offers" do
-#     it "works! (now write some real specs)" do      
-#       get offers_path
-#       response.status.should be(200)
-#     end
-#   end
-# end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# require 'spec_helper'
-
 # describe "Offer Pages", :vcr do
   
 #   subject { page }

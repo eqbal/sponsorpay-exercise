@@ -1,5 +1,5 @@
-<% return '' if  (resource.errors.empty?) or (resource.errors[:base].empty?) %>
-<% @messages =  esource.errors[:base].map { |msg| content_tag(:p, msg) }.join %>
+<% return '' if  (resource.errors.empty?) %>
+<% @messages =  resource.errors.messages.inspect %>
   
 
 <div class="alert alert-error alert-block">

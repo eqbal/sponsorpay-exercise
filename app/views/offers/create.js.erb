@@ -1,0 +1,11 @@
+<% if @offer.save %>
+	<% if @offer.items.any? %>
+		$("#results").html("<%= j render 'item', collection: @offer.items %>");
+	<% else %>
+		$("#results").html("<%= j render 'no_offers' %>");		
+	<% end %>
+<% else %>
+	$("#results").html("<%= j render 'error', resource: @offer %>");
+<% end %>
+
+$('#results').effect("highlight", {}, 1500);

@@ -2,12 +2,7 @@
   <h3>API JSON Consumer</h3>
 
   <%= render 'form' %>
-
-
-  <% if @offer.items.any? %>
-    <%= render partial: "item", collection: @offer.items  %>
-  <% else %>
-    <%= render partial: "no_offers"  %>
-  <% end %>  
+  
+  <div id="results"></div> 
 
 </center>
