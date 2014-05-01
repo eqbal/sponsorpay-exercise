@@ -16,11 +16,10 @@ class SponsorpayOffer
 
   def get_response
     response = sponsorpay_api_call
-
     begin
       validate_response(response)
       return response  
-    rescue Exceptions::FailedResponseValidationError
+    rescue 
       return false
     end
   end
@@ -34,7 +33,7 @@ class SponsorpayOffer
       end
     else
       raise "uid and request_timestamp must be initialized at least."
-    end
+    end    
   end
 
   def generate_security_values
@@ -63,7 +62,7 @@ class SponsorpayOffer
   end
 
   def sponsorpay_api_call
-    HTTParty.get("http://api.sponsorpay.com/feed/v1/offers.json?#{api_request_string}")           
+    HTTParty.get("http://api.sponsorpay.com/feed/v1/offers.json?#{api_request_string}")   
   end
 
   def response_validation_hash(response_body)
@@ -76,4 +75,3 @@ class SponsorpayOffer
   end 
 
 end  
-
