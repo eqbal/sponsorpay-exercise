@@ -1,4 +1,6 @@
 <% if @offer.save %>
+	<% @offer.get_offers %>
+
 	<% if @offer.items.any? %>
 		$("#results").html("<%= j render 'item', collection: @offer.items %>");
 	<% else %>
