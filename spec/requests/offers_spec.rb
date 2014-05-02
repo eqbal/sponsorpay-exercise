@@ -48,32 +48,10 @@ describe "Offer Pages" do
       end
 
       it "should not create any content items", :js do
-      	items = Offer.find_by_uid("player1").items
-        expect(items).to be_empty
+      	items = Offer.find_by_uid("player1")
+        expect(items).to be_nil
       end
     end
 
   end
-
-  # describe "an offer page that has offers" do
-    
-  #   before do 
-  #     offer = FactoryGirl.create(:offer)
-  #     @content_item = FactoryGirl.create(:content_item)
-  #     @content_item.offer = offer
-  #     visit offer_path(offer.id)
-  #   end
-
-  #   it "should display the offer title" do
-  #     page.should have_css(".title", text: @content_item.title)
-  #   end
-    
-  #   it "should display the lowres thumbnail" do
-  #     page.should have_xpath("//img[contains(@src, \"#{@content_item.thumbnail[:lowres]}\")]")
-  #   end
-
-  #   it "should display the payout information" do
-  #     page.should have_css(".payout", text: @content_item.payout)
-  #   end
-  # end
 end
