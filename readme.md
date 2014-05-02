@@ -3,7 +3,7 @@ SponsorPay Exercise
 
 This is a simple solution for SponsorPay exercise. 
 
-You can checkout [My Solution](http://sponsorpay-test.herokuapp.com) live at (http://sponsorpay-test.herokuapp.com).
+You can checkout [My Solution](http://sponsorpay-exercise.herokuapp.com) live at (http://sponsorpay-exercise.herokuapp.com).
 
 How to run the tests:
 ---
